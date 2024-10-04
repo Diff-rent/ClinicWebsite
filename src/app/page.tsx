@@ -1,11 +1,17 @@
-import AnimatedText from "animated-text-letters";
+"use client";
 import "animated-text-letters/index.css";
+import AnimatedText from "animated-text-letters";
+import { ArrowRight, CheckCircle2Icon } from "lucide-react";
+import { Fade, Slide, Reveal } from "react-awesome-reveal";
+import { keyframes } from "@emotion/react";
 
 export default function Home() {
   return (
-    <main className="w-full max-w-[1600px] px-16">
+    <main className="w-full max-w-[1400px] px-16">
       <header className="w-full flex items-center justify-between px-8 py-8 lg:px-0 mb-[10%]">
-        <img src="/assets/logo.png" alt="logo" />
+        <Fade triggerOnce duration={800}>
+          <img src="/assets/logo.png" alt="logo" />
+        </Fade>
 
         <div className="flex gap-8">
           <a
@@ -67,7 +73,7 @@ export default function Home() {
 
       <div className="w-full flex gap-16 mb-[24%]">
         <div className="w-full flex flex-1 flex-col justify-center">
-          <h1 className="text-6xl font-black text-start mb-4">
+          <h1 className="text-[3.5rem] font-black text-start mb-4">
             <AnimatedText
               text="Otimize sua clinica com o nosso sistema de agendamento"
               animationDuration={800}
@@ -82,17 +88,67 @@ export default function Home() {
               }}
             />
           </h1>
-          <p className="w-[80%] text-lg font-normal text-gray-800 mb-20">
-            Facilite o processo de agendamento de consultas da sua clinica com o
-            nosso sistema e foque no que realmente importa.
-          </p>
+          <Fade triggerOnce duration={2200} cascade>
+            <p className="w-[80%] text-lg font-normal text-gray-800 mb-20">
+              Facilite o processo de agendamento de consultas da sua clinica com
+              o nosso sistema e foque no que realmente importa.
+              <div
+                className="inline-flex items-center h-full justify-center gap-1 cursor-pointer"
+                onClick={() =>
+                  window.open("https://demo.easymed.tech", "_blank")
+                }
+              >
+                <span className="inline-block text-sm font-bold text-blue-500 ml-2">
+                  Visitar demo
+                </span>
+                <ArrowRight
+                  size={18}
+                  strokeWidth={2.75}
+                  color="rgb(59 130 246 )"
+                />
+              </div>
+            </p>
+          </Fade>
 
-          <button className="w-max bg-blue-500 text-white font-bold rounded px-4 py-2 hover:scale-110 shadow-md transition-all ease-out duration-300">
-            Entre em contato
-          </button>
+          <Reveal
+            keyframes={keyframes`
+            from {
+              opacity: 0;
+              transform: translateY(2rem);
+            }
+
+            to {
+              opacity: 1;
+              transform: translateY(0rem);
+            }
+          `}
+            triggerOnce
+            duration={1600}
+          >
+            <button className="w-max bg-blue-500 text-white font-bold rounded px-4 py-2 hover:scale-110 shadow-md transition-all ease-out duration-300">
+              Entre em contato
+            </button>
+          </Reveal>
         </div>
 
-        <img className="w-full flex flex-1" src="/assets/hero.png" alt="Hero" />
+        <Reveal
+          keyframes={keyframes`
+            from {
+              opacity: 0;
+              transform: scale(0.84) translateY(1rem);
+            }
+
+            to {
+              opacity: 1;
+              transform: scale(1) translateY(0rem);
+            }
+          `}
+          triggerOnce
+          duration={1000}
+          className="w-full flex flex-1"
+        >
+          <img src="/assets/hero.png" alt="Hero" />
+        </Reveal>
       </div>
 
       <section
@@ -161,21 +217,41 @@ export default function Home() {
       </section>
 
       <section id="pricing" className="mb-[32rem]">
-        <div className="w-full flex flex-col gap-16 mt-16">
-          <h2 className="text-4xl font-black text-center mb-4">Planos</h2>
+        <div className="w-full flex flex-col mt-16">
+          <h4 className="text-5xl font-black text-center mb-12">Planos</h4>
 
-          <div className="w-full flex gap-16">
-            <div className="w-full flex flex-1 flex-col justify-center">
-              <h3 className="text-3xl font-black text-start mb-4">
-                Plano Basico
+          <div className="w-full items-center justify-center flex gap-16">
+            <div className="w-full max-w-[22rem] flex flex-col justify-center border-[0.75rem] rounded-xl border-indigo-500 p-8 shadow-lg">
+              <h4 className="font-bold text-start">Starter</h4>
+              <h3 className="text-5xl font-black text-start mb-12 text-indigo-600">
+                R$99
               </h3>
-              <p className="text font-normal text-gray-700">
-                Garanta sua presença online com um site exclusivo, onde seus
-                pacientes podem agendar consultas de forma simples e eficiente.
-                Nosso sistema facilita o gerenciamento e a organização de sua
-                agenda, proporcionando uma experiência profissional e prática
-                para você e seus pacientes.
-              </p>
+
+              <span className="font-bold text-xs mb-2">Este plano inclui:</span>
+              <div className="flex items-center gap-2 mb-2">
+                <CheckCircle2Icon size={26} color="white" fill="#4ECB71" />
+                <h6>Site pessoal</h6>
+              </div>
+
+              <div className="flex items-center gap-2 mb-2">
+                <CheckCircle2Icon size={26} color="white" fill="#4ECB71" />
+                <h6>Agenda medica</h6>
+              </div>
+
+              <div className="flex items-center gap-2 mb-2">
+                <CheckCircle2Icon size={26} color="white" fill="#4ECB71" />
+                <h6>Notificacoes por email</h6>
+              </div>
+
+              <div className="flex items-center gap-2 mb-2">
+                <CheckCircle2Icon size={26} color="white" fill="#4ECB71" />
+                <h6>Subdominio personalizado</h6>
+              </div>
+
+              <div className="flex items-center gap-2 mb-2">
+                <CheckCircle2Icon size={26} color="white" fill="#4ECB71" />
+                <h6>Suporte por WhatsApp</h6>
+              </div>
             </div>
           </div>
         </div>

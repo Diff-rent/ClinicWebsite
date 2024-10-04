@@ -10,8 +10,10 @@
   },
   "dependencies": {
     "animated-text-letters": "^2.1.9",
+    "lucide-react": "^0.447.0",
     "next": "14.2.7",
     "react": "^18",
+    "react-awesome-reveal": "^4.2.14",
     "react-dom": "^18"
   },
   "devDependencies": {
