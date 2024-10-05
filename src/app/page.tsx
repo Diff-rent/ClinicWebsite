@@ -7,8 +7,8 @@ import { keyframes } from "@emotion/react";
 
 export default function Home() {
   return (
-    <main className="w-full max-w-[1400px] px-16">
-      <header className="w-full flex items-center justify-between px-8 py-8 lg:px-0 mb-[10%]">
+    <main className="w-full max-w-[1400px] px-8 lg:px-16">
+      <header className="w-full flex items-center justify-between py-8 lg:px-0 mb-[10%]">
         <Fade triggerOnce duration={1400}>
           <img src="/assets/logo.png" alt="logo" />
         </Fade>
@@ -71,9 +71,9 @@ export default function Home() {
         </div>
       </header>
 
-      <div className="w-full flex gap-16 mb-[24%]">
+      <div className="w-full flex flex-col lg:flex-row gap-24 lg:gap-16 mb-[32%] lg:mb-[24%]">
         <div className="w-full flex flex-1 flex-col justify-center">
-          <h1 className="text-[3.5rem] text-[#171717] font-black text-start mb-4">
+          <h1 className="text-4xl lg:text-[3.5rem] text-[#171717] font-black text-start mb-4">
             <AnimatedText
               text="Otimize sua clinica com o nosso sistema de agendamento"
               animationDuration={800}
@@ -89,7 +89,7 @@ export default function Home() {
             />
           </h1>
           <Fade triggerOnce duration={2200} cascade>
-            <p className="w-[80%] text font-normal text-gray-700 mb-20">
+            <p className="w-[80%] text font-normal text-gray-700 mb-14 lg:mb-20">
               Facilite o processo de agendamento de consultas da sua clinica com
               o nosso sistema e foque no que realmente importa.
               <div
@@ -125,7 +125,7 @@ export default function Home() {
             triggerOnce
             duration={1600}
           >
-            <button className="w-max bg-blue-500 text-white font-bold rounded px-4 py-2 hover:scale-110 shadow-md transition-all ease-out duration-300">
+            <button className="w-full lg:w-max bg-blue-500 text-white font-bold rounded px-4 py-2 hover:scale-110 shadow-md transition-all ease-out duration-300">
               Entre em contato
             </button>
           </Reveal>
@@ -153,9 +153,9 @@ export default function Home() {
 
       <section
         id="about"
-        className="w-full flex flex-col gap-[26rem] mb-[28rem]"
+        className="w-full flex flex-col gap-[12rem] lg:gap-[26rem] mb-[16rem] lg:mb-[28rem]"
       >
-        <div className="w-full flex gap-16">
+        <div className="w-full flex flex-col lg:flex-row gap-8 lg:gap-16">
           <img
             className="w-full flex flex-1 rounded-lg shadow-lg"
             src="/assets/about.png"
@@ -177,7 +177,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="w-full flex gap-16">
+        <div className="w-full flex flex-col-reverse lg:flex-row gap-8 lg:gap-16">
           <div className="w-full flex flex-1 flex-col justify-center">
             <h3 className="text-3xl font-black text-start mb-4">
               Gerencie e visualize sua agenda de consultas de qualquer lugar
@@ -197,7 +197,7 @@ export default function Home() {
           />
         </div>
 
-        <div className="w-full flex gap-16">
+        <div className="w-full flex flex-col lg:flex-row gap-8 lg:gap-16">
           <Reveal
             triggerOnce
             duration={1200}
@@ -220,7 +220,7 @@ export default function Home() {
             />
           </Reveal>
           <div className="w-full flex flex-1 flex-col justify-center">
-            <Fade triggerOnce duration={1200} cascade damping={0.32}>
+            <Fade triggerOnce duration={1200} cascade damping={0.16}>
               <h3 className="text-3xl font-black text-start mb-4">
                 Envie lembretes e notificações personalizadas para seus
                 pacientes
