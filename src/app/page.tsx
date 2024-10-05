@@ -1,7 +1,15 @@
 "use client";
 import "animated-text-letters/index.css";
 import AnimatedText from "animated-text-letters";
-import { ArrowRight, CheckCircle2Icon } from "lucide-react";
+import {
+  ArrowRight,
+  Bell,
+  CheckCheck,
+  CheckCircle2Icon,
+  Laptop,
+  Smartphone,
+  Tablet,
+} from "lucide-react";
 import { Fade, Slide, Reveal } from "react-awesome-reveal";
 import { keyframes } from "@emotion/react";
 
@@ -182,13 +190,30 @@ export default function Home() {
             <h3 className="text-3xl font-black text-start mb-4">
               Gerencie e visualize sua agenda de consultas de qualquer lugar
             </h3>
-            <p className="text font-normal text-gray-700">
+            <p className="text font-normal text-gray-700 mb-12">
               Seja no computador, tablet ou celular, o sistema oferece uma
               interface intuitiva e sincronizada, permitindo que você acompanhe
               e organize seus compromissos com facilidade, onde quer que esteja.
               Isso proporciona uma gestão eficiente e prática sem limitações de
               lugar ou aparelho.
             </p>
+
+            <div className="flex flex-wrap gap-2">
+              <Fade triggerOnce duration={800} cascade damping={0.18}>
+                <div className="w-max flex items-center gap-1 px-4 py-[0.4rem] shadow rounded-full bg-sky-500 text-xs font-bold text-white">
+                  <Laptop size={20} color="white" />
+                  Computador
+                </div>
+                <div className="w-max flex items-center gap-1 px-4 py-[0.4rem] shadow rounded-full bg-sky-500 text-xs font-bold text-white">
+                  <Tablet size={20} color="white" />
+                  Tablet
+                </div>
+                <div className="w-max flex items-center gap-1 px-4 py-[0.4rem] shadow rounded-full bg-sky-500 text-xs font-bold text-white">
+                  <Smartphone size={20} color="white" />
+                  Celular
+                </div>
+              </Fade>
+            </div>
           </div>
           <img
             className="w-full flex flex-1 rounded-lg shadow-lg"
@@ -225,12 +250,26 @@ export default function Home() {
                 Envie lembretes e notificações personalizadas para seus
                 pacientes
               </h3>
-              <p className="text font-normal text-gray-700">
+              <p className="text font-normal text-gray-700 mb-12">
                 Reduza significativamente as faltas às consultas com
                 notificações automáticas, proporcionando um atendimento mais
                 eficiente e personalizado.
               </p>
             </Fade>
+
+            <div className="flex flex-wrap gap-2">
+              <Fade triggerOnce duration={1200} damping={0.24} cascade>
+                <div className="w-max flex items-center gap-2 px-4 py-2 bg-sky-500 rounded-full text-xs font-bold text-white shadow-sm">
+                  <CheckCheck size={20} color="white" />
+                  <h6>Confirmacao de agendamento</h6>
+                </div>
+
+                <div className="w-max flex items-center gap-2 px-4 py-2 bg-sky-500 rounded-full text-xs font-bold text-white shadow-sm">
+                  <Bell size={20} color="white" />
+                  <h6>Lembretes de consulta</h6>
+                </div>
+              </Fade>
+            </div>
           </div>
         </div>
       </section>
