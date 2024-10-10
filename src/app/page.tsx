@@ -9,13 +9,17 @@ import {
   Laptop,
   Smartphone,
   Tablet,
+  Globe,
+  Link,
 } from "lucide-react";
-import { Fade, Slide, Reveal } from "react-awesome-reveal";
+import { Fade, Reveal } from "react-awesome-reveal";
 import { keyframes } from "@emotion/react";
+
+const WHATSAPP_URL = "https://wa.me/message/3WJ7JTEDDPE3E1";
 
 export default function Home() {
   return (
-    <main className="w-full max-w-[1400px] px-8 lg:px-16">
+    <main className="w-full max-w-[1600px] px-8 lg:px-16">
       <header className="w-full flex items-center justify-between py-8 lg:px-0 mb-[10%]">
         <Fade triggerOnce duration={1400}>
           <img src="/assets/logo.png" alt="logo" />
@@ -59,8 +63,8 @@ export default function Home() {
             />
           </a>
           <a
-            className="border-b-2 border-transparent hover:border-blue-400 transition-all ease-out duration-300 pb-1"
-            href="#"
+            className="border-b-2 border-transparent hover:border-blue-400 transition-all ease-out duration-300 pb-1 cursor-pointer"
+            onClick={() => window.open(WHATSAPP_URL, "_blank")}
           >
             <AnimatedText
               text="Contato"
@@ -81,11 +85,11 @@ export default function Home() {
 
       <div className="w-full flex flex-col lg:flex-row gap-24 lg:gap-16 mb-[32%] lg:mb-[24%]">
         <div className="w-full flex flex-1 flex-col justify-center">
-          <h1 className="text-4xl lg:text-[3.5rem] text-[#171717] font-black text-start mb-4">
+          <h1 className="text-4xl lg:text-[3.5rem] text-[#171717] font-black text-start mb-8">
             <AnimatedText
               text="Otimize sua clinica com o nosso sistema de agendamento"
-              animationDuration={800}
-              delay={32}
+              animationDuration={1200}
+              delay={42}
               animation="slide-up"
               easing="ease"
               transitionOnlyDifferentLetters={true}
@@ -96,10 +100,22 @@ export default function Home() {
               }}
             />
           </h1>
-          <Fade triggerOnce duration={2200} cascade>
+          <Fade triggerOnce duration={3200} cascade>
             <p className="w-[80%] text font-normal text-gray-700 mb-14 lg:mb-20">
-              Facilite o processo de agendamento de consultas da sua clinica com
-              o nosso sistema e foque no que realmente importa.
+              <AnimatedText
+                text="Facilite o processo de agendamento de consultas da sua clinica com
+              o nosso sistema e foque no que realmente importa. "
+                animationDuration={1200}
+                delay={26}
+                animation="slide-right"
+                easing="ease"
+                transitionOnlyDifferentLetters={true}
+                style={{
+                  display: "flex",
+                  alignItems: "start",
+                  flexWrap: "wrap",
+                }}
+              />
               <div
                 className="inline-flex items-center h-full justify-center gap-1 cursor-pointer"
                 onClick={() =>
@@ -110,8 +126,8 @@ export default function Home() {
                   Visitar demo
                 </span>
                 <ArrowRight
-                  size={18}
-                  strokeWidth={2.75}
+                  size={16}
+                  strokeWidth={2.8}
                   color="rgb(59 130 246 )"
                 />
               </div>
@@ -133,7 +149,10 @@ export default function Home() {
             triggerOnce
             duration={1600}
           >
-            <button className="w-full lg:w-max bg-blue-500 text-white font-bold rounded px-4 py-2 hover:scale-110 shadow-md transition-all ease-out duration-300">
+            <button
+              onClick={() => window.open(WHATSAPP_URL, "_blank")}
+              className="w-full lg:w-max bg-blue-500 text-white font-bold rounded px-4 py-2 hover:scale-110 shadow-md transition-all ease-out duration-300"
+            >
               Entre em contato
             </button>
           </Reveal>
@@ -153,62 +172,107 @@ export default function Home() {
           `}
           triggerOnce
           duration={1000}
-          className="w-full flex flex-1"
+          className="flex flex-1 lg:items-center lg:justify-center py-8 lg:py-0"
         >
-          <img src="/assets/hero.png" alt="Hero" />
+          <img src="/assets/hero.webp" alt="Hero" className="w-full" />
         </Reveal>
       </div>
 
       <section
         id="about"
-        className="w-full flex flex-col gap-[12rem] lg:gap-[26rem] mb-[16rem] lg:mb-[28rem]"
+        className="w-full flex flex-col gap-[12rem] lg:gap-[26rem] mb-[12rem] lg:mb-[22rem]"
       >
-        <div className="w-full flex flex-col lg:flex-row gap-8 lg:gap-16">
-          <img
-            className="w-full flex flex-1 rounded-lg shadow-lg"
-            src="/assets/about.png"
-            alt="About"
-          />
+        <div className="w-full flex flex-col items-center lg:flex-row gap-8 lg:gap-16">
+          <Reveal
+            triggerOnce
+            duration={1200}
+            fraction={0.16}
+            keyframes={keyframes`
+              from {
+                opacity: 0;
+                transform:translateY(2rem);
+              }
+
+              to {
+                opacity: 1;
+                transform: translateY(0rem);
+              }
+            `}
+            className="w-full flex flex-1 shadow-lg rounded-lg h-fit"
+          >
+            <img
+              className="w-full rounded-xl shadow-xl border-b-[0.75rem] border-l-[0.75rem] border-t-2 border-r-2 border-blue-500"
+              src="/assets/demo.gif"
+            />
+          </Reveal>
 
           <div className="w-full flex flex-1 flex-col justify-center">
-            <h3 className="text-3xl font-black text-start mb-4">
-              Eleve sua presença online com um site pessoal e único para
-              agendamentos
-            </h3>
-            <p className="text font-normal text-gray-700">
-              Garanta sua presença online com um site exclusivo, onde seus
-              pacientes podem agendar consultas de forma simples e eficiente.
-              Nosso sistema facilita o gerenciamento e a organização de sua
-              agenda, proporcionando uma experiência profissional e prática para
-              você e seus pacientes.
-            </p>
+            <Reveal
+              triggerOnce
+              duration={1600}
+              keyframes={keyframes`
+              from {
+                opacity: 0;
+              }
+
+              to {
+                opacity: 1;
+              }
+            `}
+              fraction={0.22}
+            >
+              <h3 className="text-3xl font-black text-start mb-4">
+                Eleve sua presença online com um site pessoal e único para
+                agendamentos
+              </h3>
+              <p className="text font-normal text-gray-700 mb-12">
+                Garanta sua presença online com um site exclusivo, onde seus
+                pacientes podem agendar consultas de maneira simples e
+                eficiente, seja para consultas particulares ou por convênios.
+                Nosso sistema otimiza o gerenciamento e a organização da sua
+                agenda, oferecendo uma experiência profissional e prática tanto
+                para você quanto para seus pacientes.
+              </p>
+            </Reveal>
+            <div className="flex flex-wrap gap-2">
+              <Fade triggerOnce duration={800} cascade damping={0.18}>
+                <div className="w-max flex items-center gap-1 px-4 py-[0.4rem] shadow rounded-full bg-sky-600 text-xs font-bold text-white">
+                  <Globe size={20} color="white" />
+                  Site pessoal
+                </div>
+                <div className="w-max flex items-center gap-1 px-4 py-[0.4rem] shadow rounded-full bg-sky-600 text-xs font-bold text-white">
+                  <Link size={20} color="white" />
+                  Link unico
+                </div>
+              </Fade>
+            </div>
           </div>
         </div>
 
         <div className="w-full flex flex-col-reverse lg:flex-row gap-8 lg:gap-16">
           <div className="w-full flex flex-1 flex-col justify-center">
             <h3 className="text-3xl font-black text-start mb-4">
-              Gerencie e visualize sua agenda de consultas de qualquer lugar
+              Visualize e gerencie sua agenda de consultas de qualquer lugar
             </h3>
             <p className="text font-normal text-gray-700 mb-12">
-              Seja no computador, tablet ou celular, o sistema oferece uma
+              Seja no computador, tablet ou celular, nosso sistema oferece uma
               interface intuitiva e sincronizada, permitindo que você acompanhe
-              e organize seus compromissos com facilidade, onde quer que esteja.
-              Isso proporciona uma gestão eficiente e prática sem limitações de
-              lugar ou aparelho.
+              e organize seus compromissos com facilidade em todas as
+              localidades onde atende. Isso garante uma gestão eficiente e
+              prática, sem limitações de lugar ou dispositivo.
             </p>
 
             <div className="flex flex-wrap gap-2">
               <Fade triggerOnce duration={800} cascade damping={0.18}>
-                <div className="w-max flex items-center gap-1 px-4 py-[0.4rem] shadow rounded-full bg-sky-500 text-xs font-bold text-white">
+                <div className="w-max flex items-center gap-1 px-4 py-[0.4rem] shadow rounded-full bg-sky-600 text-xs font-bold text-white">
                   <Laptop size={20} color="white" />
                   Computador
                 </div>
-                <div className="w-max flex items-center gap-1 px-4 py-[0.4rem] shadow rounded-full bg-sky-500 text-xs font-bold text-white">
+                <div className="w-max flex items-center gap-1 px-4 py-[0.4rem] shadow rounded-full bg-sky-600 text-xs font-bold text-white">
                   <Tablet size={20} color="white" />
                   Tablet
                 </div>
-                <div className="w-max flex items-center gap-1 px-4 py-[0.4rem] shadow rounded-full bg-sky-500 text-xs font-bold text-white">
+                <div className="w-max flex items-center gap-1 px-4 py-[0.4rem] shadow rounded-full bg-sky-600 text-xs font-bold text-white">
                   <Smartphone size={20} color="white" />
                   Celular
                 </div>
@@ -216,13 +280,13 @@ export default function Home() {
             </div>
           </div>
           <img
-            className="w-full flex flex-1 rounded-lg shadow-lg"
-            src="/assets/about.png"
-            alt="About"
+            className="w-full flex flex-1 rounded-lg shadow-lg border-b-[0.75rem] border-r-[0.75rem] border-t-2 border-l-2 border-blue-500"
+            src="/assets/agenda.gif"
+            alt="Calendar demo"
           />
         </div>
 
-        <div className="w-full flex flex-col lg:flex-row gap-8 lg:gap-16">
+        <div className="w-full flex flex-col items-center lg:flex-row gap-8 lg:gap-16">
           <Reveal
             triggerOnce
             duration={1200}
@@ -237,11 +301,12 @@ export default function Home() {
                 transform: translateY(0rem);
               }
             `}
-            className="w-full flex flex-1"
+            className="w-full flex flex-1 shadow-lg rounded-lg h-fit"
           >
             <img
-              src="https://github.com/Diff-rent/PICS/blob/main/mail.png?raw=true"
+              src="/assets/mail.png"
               alt="About"
+              className="w-full flex flex-1 rounded-lg shadow-lg border-b-[0.75rem] border-l-[0.75rem] border-t-2 border-r-2 border-blue-500"
             />
           </Reveal>
           <div className="w-full flex flex-1 flex-col justify-center">
@@ -259,12 +324,12 @@ export default function Home() {
 
             <div className="flex flex-wrap gap-2">
               <Fade triggerOnce duration={1200} damping={0.24} cascade>
-                <div className="w-max flex items-center gap-2 px-4 py-2 bg-sky-500 rounded-full text-xs font-bold text-white shadow-sm">
+                <div className="w-max flex items-center gap-2 px-4 py-2 bg-sky-600 rounded-full text-xs font-bold text-white shadow-sm">
                   <CheckCheck size={20} color="white" />
-                  <h6>Confirmacao de agendamento</h6>
+                  <h6>Confirmação de agendamento</h6>
                 </div>
 
-                <div className="w-max flex items-center gap-2 px-4 py-2 bg-sky-500 rounded-full text-xs font-bold text-white shadow-sm">
+                <div className="w-max flex items-center gap-2 px-4 py-2 bg-sky-600 rounded-full text-xs font-bold text-white shadow-sm">
                   <Bell size={20} color="white" />
                   <h6>Lembretes de consulta</h6>
                 </div>
@@ -274,11 +339,64 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="pricing" className="mb-16">
+      <section id="pricing" className="mb-24">
         <div className="w-full flex flex-col mt-16">
-          <h4 className="text-5xl font-black text-center mb-12">Planos</h4>
+          <h4 className="text-5xl font-black text-center mb-0">Planos</h4>
+          <h6 className="text-lg font-bold text-center mb-16">(em breve)</h6>
 
-          <div className="w-full items-center justify-center flex gap-16">
+          <div className="w-full items-center flex-wrap justify-center flex gap-16 blur-[0.8rem]">
+            <Reveal
+              triggerOnce
+              fraction={0.16}
+              duration={1200}
+              keyframes={keyframes`
+                from {
+                  opacity: 0;
+                  transform: scale(0.84) translateY(1rem);
+                }
+
+                to {
+                  opacity: 1;
+                  transform: scale(1) translateY(0rem);
+                }
+              `}
+            >
+              <div className="w-full max-w-[22rem] flex flex-col justify-center border-[0.2rem] rounded-xl border-gray-500 p-8 shadow-lg">
+                <h4 className="font-bold text-start">Starter</h4>
+                <h3 className="text-5xl font-black text-start mb-12 text-blue-600">
+                  R$99
+                </h3>
+
+                <span className="font-bold text-xs mb-2">
+                  Este plano inclui:
+                </span>
+                <div className="flex items-center gap-2 mb-2">
+                  <CheckCircle2Icon size={26} color="white" fill="#4ECB71" />
+                  <h6>Site de agendamento</h6>
+                </div>
+
+                <div className="flex items-center gap-2 mb-2">
+                  <CheckCircle2Icon size={26} color="white" fill="#4ECB71" />
+                  <h6>1 agenda medica</h6>
+                </div>
+
+                <div className="flex items-center gap-2 mb-2">
+                  <CheckCircle2Icon size={26} color="white" fill="#4ECB71" />
+                  <h6>Notificacoes por email</h6>
+                </div>
+
+                <div className="flex items-center gap-2 mb-2">
+                  <CheckCircle2Icon size={26} color="white" fill="#4ECB71" />
+                  <h6>Subdominio easymed.tech</h6>
+                </div>
+
+                <div className="flex items-center gap-2 mb-2">
+                  <CheckCircle2Icon size={26} color="white" fill="#4ECB71" />
+                  <h6>Suporte por WhatsApp</h6>
+                </div>
+              </div>
+            </Reveal>
+
             <Reveal
               triggerOnce
               fraction={0.16}
@@ -306,12 +424,12 @@ export default function Home() {
                 </span>
                 <div className="flex items-center gap-2 mb-2">
                   <CheckCircle2Icon size={26} color="white" fill="#4ECB71" />
-                  <h6>Site pessoal</h6>
+                  <h6>Site de agendamento</h6>
                 </div>
 
                 <div className="flex items-center gap-2 mb-2">
                   <CheckCircle2Icon size={26} color="white" fill="#4ECB71" />
-                  <h6>Agenda medica</h6>
+                  <h6>1 agenda medica</h6>
                 </div>
 
                 <div className="flex items-center gap-2 mb-2">
@@ -321,7 +439,59 @@ export default function Home() {
 
                 <div className="flex items-center gap-2 mb-2">
                   <CheckCircle2Icon size={26} color="white" fill="#4ECB71" />
-                  <h6>Subdominio personalizado</h6>
+                  <h6>Subdominio easymed.tech</h6>
+                </div>
+
+                <div className="flex items-center gap-2 mb-2">
+                  <CheckCircle2Icon size={26} color="white" fill="#4ECB71" />
+                  <h6>Suporte por WhatsApp</h6>
+                </div>
+              </div>
+            </Reveal>
+
+            <Reveal
+              triggerOnce
+              fraction={0.16}
+              duration={1200}
+              keyframes={keyframes`
+                from {
+                  opacity: 0;
+                  transform: scale(0.84) translateY(1rem);
+                }
+
+                to {
+                  opacity: 1;
+                  transform: scale(1) translateY(0rem);
+                }
+              `}
+            >
+              <div className="w-full max-w-[22rem] flex flex-col justify-center border-[0.2rem] rounded-xl border-gray-500 p-8 shadow-lg">
+                <h4 className="font-bold text-start">Starter</h4>
+                <h3 className="text-5xl font-black text-start mb-12 text-blue-600">
+                  R$99
+                </h3>
+
+                <span className="font-bold text-xs mb-2">
+                  Este plano inclui:
+                </span>
+                <div className="flex items-center gap-2 mb-2">
+                  <CheckCircle2Icon size={26} color="white" fill="#4ECB71" />
+                  <h6>Site de agendamento</h6>
+                </div>
+
+                <div className="flex items-center gap-2 mb-2">
+                  <CheckCircle2Icon size={26} color="white" fill="#4ECB71" />
+                  <h6>1 agenda medica</h6>
+                </div>
+
+                <div className="flex items-center gap-2 mb-2">
+                  <CheckCircle2Icon size={26} color="white" fill="#4ECB71" />
+                  <h6>Notificacoes por email</h6>
+                </div>
+
+                <div className="flex items-center gap-2 mb-2">
+                  <CheckCircle2Icon size={26} color="white" fill="#4ECB71" />
+                  <h6>Subdominio easymed.tech</h6>
                 </div>
 
                 <div className="flex items-center gap-2 mb-2">
@@ -334,7 +504,7 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="w-full flex items-center justify-center mb-40">
+      <div className="w-full flex items-center justify-center mb-64">
         <Reveal
           triggerOnce
           duration={1200}
@@ -350,8 +520,11 @@ export default function Home() {
               transform: scale(1) translateY(0rem);
             }`}
         >
-          <button className="rounded px-4 py-2 bg-blue-600 text-white font-bold shadow-xl hover:scale-110 transition-all duration-300">
-            Clique para requisitar acesso
+          <button
+            onClick={() => window.open(WHATSAPP_URL, "_blank")}
+            className="rounded px-4 py-2 bg-blue-600 text-white font-bold shadow-lg hover:scale-110 transition-all duration-300"
+          >
+            Clique para requisitar acesso antecipado
           </button>
         </Reveal>
       </div>
@@ -360,7 +533,7 @@ export default function Home() {
         <Fade triggerOnce duration={1400}>
           <div>
             <p className="text-xs font-semibold text-gray-700">
-              EasyMed - Todos os direitos reservados
+              {`EasyMed © ${new Date().getFullYear()}`}
             </p>
           </div>
         </Fade>
