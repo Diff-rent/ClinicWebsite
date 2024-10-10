@@ -21,7 +21,7 @@ export default function RootLayout({
         <script
           defer
           data-domain="easymed.tech"
-          src="http://analytics.easymed.tech/js/script.js"
+          src="https://analytics.easymed.tech/js/script.js"
         ></script>
       </Head>
       <body className={inter.className}>{children}</body>
