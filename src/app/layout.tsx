@@ -1,3 +1,4 @@
+import Head from "next/head";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -16,6 +17,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Head>
+        <script
+          defer
+          data-domain="easymed.tech"
+          src="http://analytics.easymed.tech/js/script.js"
+        ></script>
+      </Head>
       <body className={inter.className}>{children}</body>
     </html>
   );
