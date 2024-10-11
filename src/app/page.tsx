@@ -1,4 +1,5 @@
 "use client";
+import { useState, useEffect, use } from "react";
 import "animated-text-letters/index.css";
 import AnimatedText from "animated-text-letters";
 import {
@@ -11,6 +12,9 @@ import {
   Tablet,
   Globe,
   Link,
+  Instagram,
+  Mail,
+  Menu,
 } from "lucide-react";
 import { Fade, Reveal } from "react-awesome-reveal";
 import { keyframes } from "@emotion/react";
@@ -18,14 +22,112 @@ import { keyframes } from "@emotion/react";
 const WHATSAPP_URL = "https://wa.me/message/3WJ7JTEDDPE3E1";
 
 export default function Home() {
+  const [isMobile, setIsMobile] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 499) {
+        setIsMobile(true);
+      } else {
+        setIsMobile(false);
+      }
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <main className="w-full max-w-[1600px] px-8 lg:px-16">
-      <header className="w-full flex items-center justify-between py-8 lg:px-0 mb-[10%]">
-        <Fade triggerOnce duration={1400}>
-          <img src="/assets/logo.png" alt="logo" />
-        </Fade>
+      <header className="w-full flex items-center justify-between py-8 lg:px-0 mb-[4%] sm:mb-[10%]">
+        <div className="flex items-center gap-2 text-xl font-bold text-blue-500">
+          <Fade triggerOnce duration={1400}>
+            <img src="/assets/logo.png" alt="logo" />
+            <p>EASYMED</p>
+          </Fade>
+        </div>
 
-        <div className="flex gap-8 text-sm font-normal text-gray-700">
+        <div className="flex gap-4 sm:gap-8 text-sm font-normal text-gray-700">
+          {isMobile ? (
+            <Menu
+              size={24}
+              color="rgb(96 96 96)"
+              className="cursor-pointer"
+              onClick={() => {
+                setIsMenuOpen(!isMenuOpen);
+              }}
+            />
+          ) : (
+            <>
+              <a
+                className="border-b-2 border-transparent hover:border-blue-400 transition-all ease-out duration-300 pb-1"
+                href="#about"
+              >
+                <AnimatedText
+                  text="Sobre"
+                  animationDuration={800}
+                  delay={42}
+                  animation="pop-up"
+                  easing="ease"
+                  transitionOnlyDifferentLetters={true}
+                  style={{
+                    display: "flex",
+                    alignItems: "start",
+                    flexWrap: "wrap",
+                  }}
+                />
+              </a>
+              <a
+                className="border-b-2 border-transparent hover:border-blue-400 transition-all ease-out duration-300 pb-1"
+                href="#pricing"
+              >
+                <AnimatedText
+                  text="Planos"
+                  animationDuration={800}
+                  delay={42}
+                  animation="pop-up"
+                  easing="ease"
+                  transitionOnlyDifferentLetters={true}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    flexWrap: "wrap",
+                  }}
+                />
+              </a>
+              <a
+                className="border-b-2 border-transparent hover:border-blue-400 transition-all ease-out duration-300 pb-1 cursor-pointer"
+                onClick={() => window.open(WHATSAPP_URL, "_blank")}
+              >
+                <AnimatedText
+                  text="Contato"
+                  animationDuration={800}
+                  delay={42}
+                  animation="pop-up"
+                  easing="ease"
+                  transitionOnlyDifferentLetters={true}
+                  style={{
+                    display: "flex",
+                    alignItems: "start",
+                    flexWrap: "wrap",
+                  }}
+                />
+              </a>
+            </>
+          )}
+        </div>
+      </header>
+
+      {isMenuOpen && (
+        <div
+          className="w-full flex items-center justify-between mb-12 bg-gray-100 p-4 rounded z-[999]"
+          style={{
+            animation: "fadeIn 0.8s ease forwards",
+          }}
+        >
           <a
             className="border-b-2 border-transparent hover:border-blue-400 transition-all ease-out duration-300 pb-1"
             href="#about"
@@ -81,7 +183,7 @@ export default function Home() {
             />
           </a>
         </div>
-      </header>
+      )}
 
       <div className="w-full flex flex-col lg:flex-row gap-24 lg:gap-16 mb-[32%] lg:mb-[24%]">
         <div className="w-full flex flex-1 flex-col justify-center">
@@ -529,12 +631,38 @@ export default function Home() {
         </Reveal>
       </div>
 
-      <footer className="w-full flex items-center justify-center rounded p-4 bg-gray-100 mb-4 shadow-sm">
-        <Fade triggerOnce duration={1400}>
+      <footer className="w-full flex items-center justify-center rounded p-8 bg-gray-100 mb-4 shadow-sm">
+        <Fade triggerOnce duration={1400} cascade>
           <div>
-            <p className="text-xs font-semibold text-gray-700">
-              {`EasyMed © ${new Date().getFullYear()}`}
-            </p>
+            <div className="flex items-center justify-center gap-4 mb-4">
+              <a href="mailto:equipeeasymed@gmail.com">
+                <Mail
+                  size={22}
+                  color="rgb(96 96 96)"
+                  className="cursor-pointer"
+                />
+              </a>
+              <Instagram
+                size={21}
+                color="rgb(96 96 96)"
+                className="cursor-pointer"
+                onClick={() => {
+                  window.open(
+                    "https://www.instagram.com/easymed.tech",
+                    "_blank"
+                  );
+                }}
+              />
+            </div>
+
+            <div className="flex items-center flex-col">
+              <p className="text-xs font-semibold text-gray-700">
+                {`EasyMed © ${new Date().getFullYear()}`}
+              </p>
+              <p className="text-xs font-semibold text-gray-700">
+                {`Todos os direitos reservados`}
+              </p>
+            </div>
           </div>
         </Fade>
       </footer>

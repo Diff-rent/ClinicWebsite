@@ -28,3 +28,12 @@ body {
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

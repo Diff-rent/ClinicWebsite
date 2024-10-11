@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Easymed",
-  description: "Easymed, o novo jeito de se administrar sua clinica medica.",
+  description: "Easymed, o melhor jeito de se administrar sua clinica medica.",
 };
 
 export default function RootLayout({
