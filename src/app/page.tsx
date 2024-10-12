@@ -189,7 +189,7 @@ export default function Home() {
         <div className="w-full flex flex-1 flex-col justify-center">
           <h1 className="text-4xl lg:text-[3.5rem] text-[#171717] font-black text-start mb-8">
             <AnimatedText
-              text="Otimize sua clinica com o nosso sistema de agendamento"
+              text="Otimize sua clínica com o nosso sistema de agendamento"
               animationDuration={1200}
               delay={42}
               animation="slide-up"
@@ -205,7 +205,7 @@ export default function Home() {
           <Fade triggerOnce duration={3200} cascade>
             <p className="w-[80%] text font-normal text-gray-700 mb-14 lg:mb-20">
               <AnimatedText
-                text="Facilite o processo de agendamento de consultas da sua clinica com
+                text="Facilite o processo de agendamento de consultas da sua clínica com
               o nosso sistema e foque no que realmente importa. "
                 animationDuration={1200}
                 delay={26}
