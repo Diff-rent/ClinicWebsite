@@ -403,12 +403,12 @@ export default function Home() {
                 transform: translateY(0rem);
               }
             `}
-            className="w-full flex flex-1 shadow-lg rounded-lg h-fit"
+            className="w-full flex flex-1 shadow-lg rounded-lg"
           >
             <img
               src="/assets/mail.png"
               alt="About"
-              className="w-full flex flex-1 rounded-lg shadow-lg border-b-[0.75rem] border-l-[0.75rem] border-t-2 border-r-2 border-blue-500"
+              className="w-full rounded-lg flex border-b-[0.75rem] border-l-[0.75rem] border-t-2 border-r-2 border-blue-500"
             />
           </Reveal>
           <div className="w-full flex flex-1 flex-col justify-center">
